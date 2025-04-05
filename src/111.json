@@ -1,0 +1,146 @@
+{
+  "ociVersion": "1.1.0",
+  "root": { "path": "rootfs" },
+  "process": {
+    "cwd": "/",
+    "noNewPrivileges": true,
+    "user": { "uid": 0, "gid": 0, "additionalGids": [] },
+    "capabilities": {
+      "bounding": [
+        "CAP_CHOWN",
+        "CAP_DAC_OVERRIDE",
+        "CAP_FSETID",
+        "CAP_FOWNER",
+        "CAP_MKNOD",
+        "CAP_NET_RAW",
+        "CAP_SETGID",
+        "CAP_SETUID",
+        "CAP_SETFCAP",
+        "CAP_SETPCAP",
+        "CAP_NET_BIND_SERVICE",
+        "CAP_SYS_CHROOT",
+        "CAP_KILL",
+        "CAP_AUDIT_WRITE"
+      ],
+      "permitted": [
+        "CAP_CHOWN",
+        "CAP_DAC_OVERRIDE",
+        "CAP_FSETID",
+        "CAP_FOWNER",
+        "CAP_MKNOD",
+        "CAP_NET_RAW",
+        "CAP_SETGID",
+        "CAP_SETUID",
+        "CAP_SETFCAP",
+        "CAP_SETPCAP",
+        "CAP_NET_BIND_SERVICE",
+        "CAP_SYS_CHROOT",
+        "CAP_KILL",
+        "CAP_AUDIT_WRITE"
+      ],
+      "effective": [
+        "CAP_CHOWN",
+        "CAP_DAC_OVERRIDE",
+        "CAP_FSETID",
+        "CAP_FOWNER",
+        "CAP_MKNOD",
+        "CAP_NET_RAW",
+        "CAP_SETGID",
+        "CAP_SETUID",
+        "CAP_SETFCAP",
+        "CAP_SETPCAP",
+        "CAP_NET_BIND_SERVICE",
+        "CAP_SYS_CHROOT",
+        "CAP_KILL",
+        "CAP_AUDIT_WRITE"
+      ]
+    },
+    "rlimits": [{ "hard": 1024, "soft": 1024, "type": "RLIMIT_NOFILE" }],
+    "args": ["nginx", "-g", "daemon off;"],
+    "env": [
+      "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "NGINX_VERSION=1.27.3",
+      "PKG_RELEASE=1",
+      "DYNPKG_RELEASE=1",
+      "NJS_VERSION=0.8.7",
+      "NJS_RELEASE=1"
+    ]
+  },
+  "linux": {
+    "masked_paths": [
+      "/proc/acpi",
+      "/proc/asound",
+      "/proc/kcore",
+      "/proc/keys",
+      "/proc/latency_stats",
+      "/proc/timer_list",
+      "/proc/timer_stats",
+      "/proc/sched_debug",
+      "/proc/scsi",
+      "/sys/firmware",
+      "/sys/devices/virtual/powercap"
+    ],
+    "readonly_paths": [
+      "/proc/bus",
+      "/proc/fs",
+      "/proc/irq",
+      "/proc/sys",
+      "/proc/sysrq-trigger"
+    ],
+    "cgroups_path": "default/test_cni_011",
+    "resources": { "devices": [{ "allow": false, "access": "rwm" }] },
+    "namespaces": [
+      { "type": "pid", "path": null },
+      { "type": "ipc", "path": null },
+      { "type": "uts", "path": null },
+      { "type": "mount", "path": null },
+      { "type": "network", "path": "/var/run/netns/default-test_cni_031" }
+    ]
+  },
+  "mounts": [
+    { "destination": "/proc", "type": "proc", "source": "proc", "options": [] },
+    {
+      "destination": "/dev",
+      "type": "tmpfs",
+      "source": "tmpfs",
+      "options": ["nosuid", "strictatime", "mode=755", "size=65536k"]
+    },
+    {
+      "destination": "/dev/pts",
+      "type": "devpts",
+      "source": "devpts",
+      "options": [
+        "nosuid",
+        "noexec",
+        "newinstance",
+        "ptmxmode=0666",
+        "mode=0620",
+        "gid=5"
+      ]
+    },
+    {
+      "destination": "/dev/shm",
+      "type": "tmpfs",
+      "source": "shm",
+      "options": ["nosuid", "noexec", "nodev", "mode=1777", "size=65536k"]
+    },
+    {
+      "destination": "/dev/mqueue",
+      "type": "mqueue",
+      "source": "mqueue",
+      "options": ["nosuid", "noexec", "nodev"]
+    },
+    {
+      "destination": "/sys",
+      "type": "sysfs",
+      "source": "sysfs",
+      "options": ["nosuid", "noexec", "nodev", "ro"]
+    },
+    {
+      "destination": "/sys/fs/cgroup",
+      "type": "cgroup",
+      "source": "cgroup",
+      "options": ["nosuid", "noexec", "nodev", "relatime", "ro"]
+    }
+  ]
+}
